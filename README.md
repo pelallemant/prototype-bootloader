@@ -16,6 +16,14 @@ You can write your kernel with:
 
 You must configure the file `prototype-bootloader.conf` to renseign the size of your kernel.
 
+Requirements:
+=============
+
+Ubuntu
+------
+
+`sudo apt-get install libc6-dev-i386` to enable you to cross-compile to i386
+
 PB Compilation
 ==============
 
@@ -35,3 +43,8 @@ Creating a bootable kernel (for floppy)
 `cat bin/bootsect your_kernel /dev/zero | dd of=floppyA bs=512 count=2880`
 
 And use "floppyA".
+
+How to test
+===========
+
+`cd bin/examples/x86/ && qemu kernel1`

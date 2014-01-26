@@ -20,7 +20,6 @@ build: $(C_OBJ) $(ASM_OBJ)
 	gcc -m32 -c -o ../../../bin/kernel_tmp.o ../../../examples/C/kernel1/kernel.c $(CFLAGS)
 	ld --oformat binary -m elf_i386 -Ttext 1000 -o ../../../bin/kernel ../../../bin/kernel_tmp.o $(C_OBJ) $(ASM_OBJ)
 	cat ../../../bin/bootloader ../../../bin/kernel /dev/zero | dd of=../../../bin/examples/C/kernel1 bs=512 count=2880
-	rm ../../../bin/kernel_tmp.o
 
 
 %.o: %.c
