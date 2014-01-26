@@ -12,7 +12,9 @@ ASM_OBJ_TMP=$(ASM_SRC:.asm=)
 
 ASM_OBJ=$(filter-out ../../../examples/x86/kernel1/kernel,$(ASM_OBJ_TMP))
 
-all: $(C_OBJ) $(ASM_OBJ)
+all: build clean
+
+build: $(C_OBJ) $(ASM_OBJ)
 	mkdir -p ../../../bin/examples/x86
 	nasm -f elf -o ../../../bin/kernel_tmp ../../../examples/x86/kernel1/kernel.asm
 	ld --oformat binary -m elf_i386 -Ttext 1000 -o ../../../bin/kernel ../../../bin/kernel_tmp $(C_OBJ) $(ASM_OBJ)
@@ -23,4 +25,8 @@ all: $(C_OBJ) $(ASM_OBJ)
 
 %: %.asm
 	nasm -f elf -o $@ $<
+
+clean:
+	rm -f $(C_OBJ)
+	rm -f $(ASM_OBJ)
 
