@@ -1,5 +1,9 @@
 [BITS 32]
 
+GLOBAL _start
+
+_start:
+
 ; Display a message by writting in the VRAM (currently we are in text mode)
     mov byte [0xB8A00], 'H'
     mov byte [0xB8A01], 0x57

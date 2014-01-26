@@ -3,7 +3,7 @@ rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst 
 
 -include ../prototype-bootloader.conf
 
-all: build examples
+all: build
 
 build:
 	mkdir -p ../bin
@@ -12,6 +12,7 @@ build:
 
 examples:
 	cd examples/x86 && $(MAKE)
+	cd examples/C && $(MAKE)
 
 clean:
 	rm -rf ../bin

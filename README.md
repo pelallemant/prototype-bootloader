@@ -16,7 +16,6 @@ You can write your kernel with:
 
 You must configure the file `prototype-bootloader.conf` to renseign the size of your kernel.
 
-
 PB Compilation
 ==============
 
